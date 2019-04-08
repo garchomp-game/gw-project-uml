@@ -1,0 +1,59 @@
+@startuml
+
+/'
+  図の中で目立たせたいエンティティに着色するための
+  色の名前（定数）を定義します。
+'/
+!define MAIN_ENTITY #E2EFDA-C6E0B4
+!define MAIN_ENTITY_2 #FCE4D6-F8CBAD
+
+/' 他の色も、用途が分りやすいように名前をつけます。 '/
+!define METAL #F2F2F2-D9D9D9
+!define MASTER_MARK_COLOR AAFFAA
+!define TRANSACTION_MARK_COLOR FFAA00
+
+/'
+  デフォルトのスタイルを設定します。
+  この場合の指定は class です。entity ではエラーになります。
+'/
+skinparam class {
+    BackgroundColor METAL
+    BorderColor Black
+    ArrowColor Black
+}
+
+database "データベース" as ext{
+    ' entity table_name as alias <<icon, color>>
+    entity "ユーザー" as user <<M,MASTER_MARK_COLOR>> {
+        'pk = + column_name [PK]
+        'fk = # column_name[FK]
+        + id [PK]
+        --
+        名前
+        パスワード
+        パスワード（ハッシュ）
+        自己紹介
+        アイコン画像パス
+    }
+    entity "掲示板" as boad <<M,MASTER_MARK_COLOR>> {
+        + id [PK]
+        --
+        # ユーザーid [FK]
+        コメント
+    }
+
+    entity "キャラクター" as caractor <<M,MASTER_MARK_COLOR>>{
+        + id [PK]
+        --
+        # ユーザーid [FK]
+        名前
+        性別
+        アイコン画像パス
+        自己紹介
+        R18であるか
+    }
+}
+
+user }o-right-o| boad
+user ||-left-o{ caractor
+@enduml

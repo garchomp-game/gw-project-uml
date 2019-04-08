@@ -1,0 +1,57 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+actor ユーザー as user
+actor キャラクター as caractor
+
+rectangle マイページ {
+    '定義
+    usecase mypage_list as "
+    名前
+    ID
+    所持キャラクター
+    プロフアイコン
+    "
+    (ユーザー情報) as user_info
+    'ユースケース
+    user -- user_info
+    'down
+    user_info .left.> mypage_list :<<include>>
+    'up
+    user_info -right-> (ユーザー情報編集へ)
+
+}
+rectangle 所持キャラクター {
+    '定義
+    usecase caractor_show as "
+    アイコン
+    名前
+    性別
+    自己紹介
+    "
+    (キャラクター情報) as caractor_info
+    'ユースケース
+    caractor -- caractor_info
+    'down
+    caractor_info .left.> caractor_show :<<include>>
+    'up
+    caractor_info -right-> (キャラクター情報編集へ)
+}
+
+'class User {
+'  - String name
+'  - Integer id
+'  - ArrayList caractor_list
+'  - String icon_filepath
+'  + get_mypage()
+'}
+
+'class Caractor {
+'   - String icofilepath
+'   - String name
+'   - Integer sex
+'   - String description
+'   + get_caractor()
+'}
+@enduml

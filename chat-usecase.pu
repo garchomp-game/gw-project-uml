@@ -1,0 +1,30 @@
+チャット機能の説明を記述する。
+具体的にどのような機能を持たせるか
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor ユーザー as user
+rectangle 掲示板 {
+    '定義
+    (コメントを投稿する) as (comment)
+    (キャラクターアイコンを変更する) as (change_icon)
+    (相手ユーザーのコメントの返信機能) as (reply)
+    (TRPGを進行するオプションにチェックをつけたら必要な材料を揃える) as (has_trpg)
+    'ユースケース
+    user -- (comment)
+    user -- (change_icon)
+    user -- (reply)
+    user -- (has_trpg)
+}
+
+'note
+note "非同期処理で" as async
+(comment) -- async
+(change_icon) -- async
+note right of (reply) :バックグラウンドでユーザーidを指定した更新をする
+note right of (has_trpg)
+    必要な材料についてはtrpg_component.puを参照。
+    なお余裕あったら実装する形にする。
+end note
+
+@enduml
