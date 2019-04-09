@@ -35,14 +35,15 @@ database "データベース" as ext{
         自己紹介
         アイコン画像パス
     }
-    entity "掲示板" as boad <<M,MASTER_MARK_COLOR>> {
+    entity "掲示板" as board <<M,MASTER_MARK_COLOR>> {
         + id [PK]
         --
         # ユーザーid [FK]
+        # キャラクターid [FK]
         コメント
     }
 
-    entity "キャラクター" as caractor <<M,MASTER_MARK_COLOR>>{
+    entity "キャラクター" as character <<M,MASTER_MARK_COLOR>>{
         + id [PK]
         --
         # ユーザーid [FK]
@@ -54,6 +55,7 @@ database "データベース" as ext{
     }
 }
 
-user }o-right-o| boad
-user ||-left-o{ caractor
+user }o-right-o| board
+user ||-up-o{ character
+board ||--|| character
 @enduml

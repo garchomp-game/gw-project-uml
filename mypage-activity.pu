@@ -1,0 +1,16 @@
+@startuml
+
+skinparam monochrome reverse
+title マイページを開いた時の処理
+start
+    :マイページに入ったら自身のマイページが表示されている
+    また、マイページの下にキャラクターの一覧も表示されている;
+    if (マイページの編集ボタンを押したら) then (yes)
+        :マイページ編集画面に遷移する;
+    endif
+
+    if (キャラクター編集ボタンを押したら) then (yes)
+        :キャラクター編集ページに遷移する;
+    endif
+end
+@enduml

@@ -19,7 +19,7 @@ rectangle マイページ {
     'down
     user_info .left.> mypage_list :<<include>>
     'up
-    user_info -right-> (ユーザー情報編集へ)
+    user_info -right-> (ユーザー情編集へ)
 
 }
 rectangle 所持キャラクター {

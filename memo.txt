@@ -1,0 +1,27 @@
+キャラクターアイコン変更について
+掲示板入室時に全キャラの情報をローカルストレージに持たせておく。
+マイページの設定からキャラクターデフォルト指定ができ、デフォルト指定されたキャラクターのアイコンを表示する。
+
+$characters = Auth::user()->caracters; // list
+public function characters() {
+    return $this->hasMany('users');
+}
+
+v-icon-list
+    :caracters
+期待動作
+     - アイコンをタップしたらリストを表示する。
+     - 別のアイコンをタップしたらキャラクターを入れ替える
+     - リストを閉じるときアイコンが入れ替わっている状態にする
+VIconList
+
+キャラクターを入れ替える手順
+    ローカルストレージのキャラクターidを変更する。
+
+コメント投稿する際は
+user_id: Auth::user()->id
+character_id: storage.character.id
+で取得する
+view側でaxiosで送信。
+
+ブロードキャストを使ってコメントを投稿する。
