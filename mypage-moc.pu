@@ -1,13 +1,4 @@
-@startuml
-!definelong SALT(x)
-"{{
-salt
-_##x
-}}
-" as x
-!enddefinelong
-
-!definelong _hoge
+@startsalt
 {+
     {^"マイページ"
         {^"ユーザー情報"
@@ -19,7 +10,7 @@ _##x
         }
         {^"所持キャラクター"
             {+
-                [編集する]
+                [編集する][削除する]
                 名前|たく
                 --|..
                 種族（種別）|ポケモン
@@ -33,7 +24,7 @@ _##x
             }
             ~~
             {+
-                [編集する]
+                [編集する] [削除する]
                 名前|おとか
                 --|..
                 種族（種別）|ポケモン
@@ -48,9 +39,4 @@ _##x
         }
     }
 }
-!enddefinelong
-(*) --> SALT(hoge)
-note right
-ボックスの幅は合わせる。
-end note
-@enduml
+@endsalt

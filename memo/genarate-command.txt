@@ -1,0 +1,53 @@
+php artisan make:auth
+
+php artisan make:model Character
+php artisan make:model CharacterSheet
+php artisan make:model Board
+php artisan make:model Comment
+php artisan make:model DirectMessage
+
+php artisan make:migration create_characters_table
+  id
+  integer user_id
+  string race
+  string name
+  integer age
+  integer gender
+  text description
+php artisan make:migration create_boards_table
+  id
+  integer user_id
+  string title
+  text description
+php artisan make:migration create_comments_table
+  id
+  integer user_id
+  integer board_id
+  text comment
+php artisan make:migration create_direct_messages_table
+  id
+  integer user_id
+  integer partner_id
+  text comment
+php artisan make:migration create_character_sheets_table
+  id
+  integer user_id
+  integer board_id
+  integer str
+  integer con
+  integer pow
+  integer dex
+  integer app
+  integer siz
+  integer int
+  integer edu
+  integer annual_income
+  integer san
+  integer lucky
+  integer idea
+  integer knowledge
+  integer endurance
+  integer magic_point
+  integer vocational_skill_point
+  integer hobby_skill_point
+  string damage_bonus

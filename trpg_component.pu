@@ -1,0 +1,70 @@
+時間に余裕があったら後で追加する
+
+@startuml
+left to right direction
+title 掲示板拡張機能：trpg機能コンポーネント図
+package "右上" {
+  package "キャラクターシート" {
+    [生成機能]
+  }
+  package "pdfビューアー" {
+    [pdf生成機能]
+  }
+  note right
+  余裕があったら実装する。おそらく無理
+  end note
+}
+package "右下" {
+  package "サイコロタブ" {
+    [複数生成と集計]
+    [サイコロ本体]
+  }
+  note right
+  オンラインで引っ張ってくる
+  end note
+  package "電卓タブ" {
+    [電卓機能]
+  }
+  note right
+  電卓はこれを使う
+  https://vuejsexamples.com/a-ios-style-calculator-with-vue-js/
+  end note
+}
+@enduml
+STR(筋力)	  dice1_1  dice1_2  dice1_3
+CON(体力)	  dice2_1  dice2_2  dice2_3
+POW(精神力)	  dice3_1  dice3_2  dice3_3
+DEX(敏捷性)	  dice4_1  dice4_2  dice4_3
+APP(外見)	  dice5_1  dice5_2  dice5_3
+SIZ(体格)	  dice6_1  dice6_2
+INT(知性)	  dice7_1  dice7_2
+EDU(教育)	  dice8_1  dice8_2  dice8_3
+年収・財産	  dice9_1  dice9_2  dice9_3
+
+san SAN（正気度）	POW×5	85
+lucky 幸運	POW×5	85
+idea アイデア	INT×5	55
+knowledge 知識	EDU×5	75
+endurance 耐久力	(CON+SIZ)÷2	12.5
+magic_point マジックポイント	POW×1	17
+vocational_skill_point 職業技能ポイント	EDU×20	300
+hobby_skill_point 趣味技能ポイント	INT×10	110
+damage_bonus ダメージボーナス STR＋SIZ
+
+3D6の値	年収（財産はこの5倍）
+3	150万円以下
+4	200万円
+5	250万円
+6	300万円
+7	350万円
+8	400万円
+9	450万円
+10	500万円
+11	600万円
+12	700万円
+13	800万円
+14	900万円
+15	1000万円
+16	2000万円
+17	3000万円
+18	5000万円以上
